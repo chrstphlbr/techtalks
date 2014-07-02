@@ -9,7 +9,7 @@ func TestImportVideo(t *testing.T) {
 	const dir = "/Users/Christoph/tmp/techtalks_data/"
 
 	i := NewFileImporter(dir)
-	i.SetImportFunc(func(d interface{}) {
+	i.SetStoreFunc(func(d interface{}) {
 		switch d.(type) {
 		case fileVideo:
 			log.Println("fileVideo")

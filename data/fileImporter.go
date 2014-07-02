@@ -10,7 +10,7 @@ import (
 
 type FileImporter struct {
 	basePath string
-	importFn ImportFunc
+	importFn StoreFunc
 }
 
 func NewFileImporter(basePath string) *FileImporter {
@@ -19,7 +19,7 @@ func NewFileImporter(basePath string) *FileImporter {
 	}
 }
 
-func (fi *FileImporter) SetImportFunc(fn ImportFunc) {
+func (fi *FileImporter) SetStoreFunc(fn StoreFunc) {
 	fi.importFn = fn
 }
 

@@ -9,11 +9,9 @@ import (
 )
 
 type Importer interface {
-	SetImportFunc(fn ImportFunc)
+	SetStoreFunc(fn StoreFunc)
 	ImportData()
 }
-
-type ImportFunc func(dataElement interface{})
 
 type typeDir int
 
@@ -48,7 +46,7 @@ func typeDirPath(basePath string, td typeDir) (p string) {
 	return
 }
 
-func imp(r io.Reader, td typeDir, importFn ImportFunc) (err error) {
+func imp(r io.Reader, td typeDir, importFn StoreFunc) (err error) {
 	dec := json.NewDecoder(r)
 
 	var value interface{}
